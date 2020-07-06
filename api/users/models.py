@@ -12,4 +12,4 @@ class User(models.Model):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('name', 'email', 'created_at', 'last_login')
+        fields = ('name', 'email', 'created_at')
