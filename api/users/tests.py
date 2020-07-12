@@ -9,3 +9,7 @@ class UserAPITest(APITestCase):
         response = self.client.get('/api/users/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(User.objects.count(), 0)
+
+    def test_post(self):
+        response = self.client.post('/api/users/')
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
