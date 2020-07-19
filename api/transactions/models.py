@@ -12,7 +12,7 @@ class Transaction(models.Model):
         (INCOME, 'Receita'),
         (EXPENSE, 'Despesa')
     )
-    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
     kind = models.CharField('tipo', max_length=1, choices=KINDS)
     description = models.CharField('descrição', max_length=255)
     value = models.DecimalField('valor', max_digits=16, decimal_places=2)
@@ -22,4 +22,4 @@ class Transaction(models.Model):
 class TransactionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Transaction
-        fields = ('description', 'value', 'kind', 'created_at', 'user')
+        fields = ('description', 'value', 'kind', 'created_at', 'person')

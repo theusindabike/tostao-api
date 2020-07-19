@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(max_length=255, verbose_name='descrição')),
                 ('value', models.DecimalField(decimal_places=2, max_digits=16, verbose_name='valor')),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='criado em')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='persons.Person')),
+                ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='persons.Person')),
             ],
         ),
     ]
