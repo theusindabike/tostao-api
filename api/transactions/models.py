@@ -1,7 +1,7 @@
 from django.db import models
 from rest_framework import serializers
 
-from api.users.models import User
+from api.persons.models import Person
 
 
 class Transaction(models.Model):
@@ -12,7 +12,7 @@ class Transaction(models.Model):
         (INCOME, 'Receita'),
         (EXPENSE, 'Despesa')
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
     kind = models.CharField('tipo', max_length=1, choices=KINDS)
     description = models.CharField('descrição', max_length=255)
     value = models.DecimalField('valor', max_digits=16, decimal_places=2)
